@@ -2,5 +2,4 @@
 
 - Unit Tests
 - ci
-- Documentation
 - packagist
