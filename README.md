@@ -32,3 +32,9 @@ Install YamlPathLoader via your composer as follows:
     	return $translator;
 	}));
 ```
+
+
+### ToDo
+
+- Unit Tests
+- packagist

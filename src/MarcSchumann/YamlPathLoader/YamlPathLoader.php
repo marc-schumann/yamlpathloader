@@ -32,9 +32,9 @@ class YamlPathLoader extends YamlFileLoader
             throw new InvalidResourceException(sprintf('This is not a valid dir "%s".', $resource));
         }
 
-        $files = scandir($resource);
+        $files = array_diff(scandir($resource), ['..', '.']);
 
-        if (2 == count($files)) {
+        if (0 == count($files)) {
             // No files in directory
             return null;
         }
@@ -42,10 +42,6 @@ class YamlPathLoader extends YamlFileLoader
         $messages = [];
 
         foreach ($files as $file) {
-            if (true === in_array($file, ['.', '..'])) {
-                continue;
-            }
-
             try {
                 $messages = array_merge($messages, $this->yamlParser->parse(file_get_contents($resource . '/' . $file)));
             } catch (ParseException $e) {

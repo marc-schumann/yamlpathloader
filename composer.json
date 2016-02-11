@@ -1,10 +1,10 @@
 {
     "name": "marcschumann/yamlpathloader",
-    "description": "Extends the YamlFileLoader from Symfony in order to load whole paths with yaml files in it. E.g. translation files.",
-    "license": "c",
+    "description": "Extends the YamlFileLoader from symfony in order to load whole paths with yaml files in it. E.g. translation files.",
+    "license": "Common Creative 1.0",
     "authors": [
         {
-            "name": "marc-schumann",
+            "name": "Marc Schumann",
             "email": "marc.andre.schumann@gmail.com"
         }
     ],
