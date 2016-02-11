@@ -41,4 +41,5 @@ Thumbs.db:wq
 .idea
 .idea/*
 
-/vendor/
+vendor
+composer.lock
