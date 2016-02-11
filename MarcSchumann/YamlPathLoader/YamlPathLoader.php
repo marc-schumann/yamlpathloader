@@ -1,6 +1,6 @@
 <?php
 
-namespace YamlPathLoader;
+namespace MarcSchumann\YamlPathLoader;
 
 use Symfony\Component\Translation\Exception\InvalidResourceException;
 use Symfony\Component\Yaml\Parser as YamlParser;
@@ -54,5 +54,4 @@ class YamlPathLoader extends YamlFileLoader
 
         return $messages;
     }
-
 }
