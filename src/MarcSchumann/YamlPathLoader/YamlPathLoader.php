@@ -3,6 +3,7 @@
 namespace MarcSchumann\YamlPathLoader;
 
 use Symfony\Component\Translation\Exception\InvalidResourceException;
+use Symfony\Component\Translation\Loader\YamlFileLoader;
 use Symfony\Component\Yaml\Parser as YamlParser;
 use Symfony\Component\Yaml\Exception\ParseException;
 
