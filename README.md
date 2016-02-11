@@ -36,5 +36,4 @@ Install YamlPathLoader via your composer as follows:
 
 ### ToDo
 
-- Unit Tests
 - packagist
