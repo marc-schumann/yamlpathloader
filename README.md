@@ -1,4 +1,4 @@
-https://travis-ci.org/marc-schumann/yamlpathloader.svg?branch=master
+[![Build Status](https://travis-ci.org/marc-schumann/yamlpathloader.svg?branch=master)](https://travis-ci.org/marc-schumann/yamlpathloader)
 
 # YamlPathLoader
 
