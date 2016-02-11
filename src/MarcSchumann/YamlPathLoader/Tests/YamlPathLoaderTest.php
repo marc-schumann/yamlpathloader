@@ -1,13 +1,31 @@
 <?php
 
+namespace MarcSchumann\YamlPathLoader\YamlPathLoader\Tests;
+
+use MarcSchumann\YamlPathLoader\YamlPathLoader;
+use org\bovigo\vfs\vfsStream;
+use Prophecy\Argument;
+
+/**
+ * Class YamlPathLoaderTest
+ */
 class YamlPathLoaderTest extends \PHPUnit_Framework_TestCase
 {
+    /** @var \Prophecy\Prophet $prophet */
+    protected $prophet;
+
+    /** @var \Symfony\Component\Yaml\Parser $yamlParser */
+    protected $yamlParser;
+
     /**
      * Test - Setup
      */
     public function setUp()
     {
-
+        $this->prophet    = new \Prophecy\Prophet;
+        $this->yamlParser = $this->prophet->prophesize(
+            'Symfony\Component\Yaml\Parser'
+        );
     }
 
     /**
@@ -15,14 +33,47 @@ class YamlPathLoaderTest extends \PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-
+        $this->prophet->checkPredictions();
     }
 
     /**
      * Tests YamlPathLoader::loadResource
+     *
+     * @dataProvider testData
      */
-    public function testLoadResource()
+    public function testLoadResource($resource, $locale, $exception)
     {
-        $this->assertEquals(true, true);
+        if (null != $exception) {
+            $this->expectException($exception);
+        }
+
+        $loader    = new YamlPathLoader;
+        $catalogue = $loader->load($resource, $locale);
+
+        $this->assertEquals($locale, $catalogue->getLocale());
+    }
+
+    /**
+     * @return array
+     */
+    public function testData()
+    {
+        return [
+            [
+                'directory' => __DIR__.'/../fixtures/en/',
+                'locale' => 'en',
+                'exception' => null
+            ],
+            [
+                'directory' => __DIR__.'/../fixtures/de/',
+                'locale' => 'de',
+                'exception' => null
+            ],
+            [
+                'directory' => __DIR__.'/../fixtures/fr/',
+                'locale' => 'fr',
+                'exception' => 'Symfony\Component\Translation\Exception\NotFoundResourceException'
+            ]
+        ];
     }
 }
