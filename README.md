@@ -1,3 +1,5 @@
+https://travis-ci.org/marc-schumann/yamlpathloader.svg?branch=master
+
 # YamlPathLoader
 
 Extends the YamlFileLoader from Symfony in order to load whole paths with yaml files in it. E.g. translation files.
@@ -30,5 +32,3 @@ Install YamlPathLoader via your composer as follows:
     	return $translator;
 	}));
 ```
-
-
