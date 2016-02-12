@@ -9,8 +9,10 @@ Extends the YamlFileLoader from Symfony in order to load whole paths with yaml f
 
 Install YamlPathLoader via your composer as follows:
 
-```
-	php composer.phar require marc-schumann/yamlpathloader:dev-master
+```console
+
+	php composer.phar require marcschumann/yamlpathloader:dev-master
+	
 ```
 
 
@@ -32,8 +34,3 @@ Install YamlPathLoader via your composer as follows:
     	return $translator;
 	}));
 ```
-
-
-### ToDo
-
-- packagist
