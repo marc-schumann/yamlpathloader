@@ -42,10 +42,20 @@ class YamlPathLoader extends YamlFileLoader
         $messages = [];
 
         foreach ($files as $file) {
-            try {
-                $messages = array_merge($messages, $this->yamlParser->parse(file_get_contents($resource . '/' . $file)));
-            } catch (ParseException $e) {
-                throw new InvalidResourceException(sprintf('Error parsing YAML, invalid file "%s"', $resource), 0, $e);
+            $_resource = $resource.$file;
+            if (is_dir($_resource)) {
+                $messages = array_merge_recursive($messages, $this->loadResource($_resource.'/'));
+
+            } else {
+                try {
+                    $messages = array_merge_recursive($messages, $this->yamlParser->parse(file_get_contents($_resource)));
+                } catch (ParseException $e) {
+                    throw new InvalidResourceException(
+                        sprintf('Error parsing YAML, invalid file "%s"', $_resource),
+                        0,
+                        $e
+                    );
+                }
             }
         }
 
