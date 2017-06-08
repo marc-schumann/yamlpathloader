@@ -3,8 +3,6 @@
 namespace MarcSchumann\YamlPathLoader\YamlPathLoader\Tests;
 
 use MarcSchumann\YamlPathLoader\YamlPathLoader;
-use org\bovigo\vfs\vfsStream;
-use Prophecy\Argument;
 
 /**
  * Class YamlPathLoaderTest
